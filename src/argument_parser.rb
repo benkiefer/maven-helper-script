@@ -1,14 +1,29 @@
 class ArgumentParser
-  public
-    def parse(args)
-      @myString = ''
+  @@commands = {
+      'c' => 'clean',
+      'i' => 'install',
+      'ci' => 'clean install',
+      'jr' => 'jetty:run',
+      'ct' => 'clean test-compile'
+  }
 
-      args.each do |a|
-        @myString = @myString + a + " "
+  public
+  def parse(args)
+    @result = ''
+
+    args.each do |arg|
+
+      found = @@commands[arg]
+
+      if found == nil
+        found = ' -pl ' << arg << ' && '
       end
 
-      @myString.strip!
+      @result = @result + found
 
-      @myString
     end
+
+    @result.chomp(' && ')
+  end
+
 end
