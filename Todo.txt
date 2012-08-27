@@ -1,0 +1,2 @@
+DONE 1. Figure out how to execute command line
+2. Figure out how to parse command line args
