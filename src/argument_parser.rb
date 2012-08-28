@@ -17,9 +17,11 @@ class ArgumentParser
       found = @@commands[arg]
 
       if found != nil
-        @result << found
+        @result << 'mvn ' << found
+
       elsif isSpecialtyCommand arg
         @specialtyCommands << arg
+
       else
         @result << ' -pl ' << arg
         @resultingCommands << @result
