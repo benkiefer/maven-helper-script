@@ -9,21 +9,40 @@ class ArgumentParser
 
   public
   def parse(args)
+    @resultingCommands = Array[]
     @result = ''
+    @specialtyCommands = Array[]
 
     args.each do |arg|
-
       found = @@commands[arg]
 
-      if found == nil
-        found = ' -pl ' << arg << ' && '
+      if found != nil
+        @result << found
+      elsif isSpecialtyCommand arg
+        @specialtyCommands << arg
+      else
+        @result << ' -pl ' << arg
+        @resultingCommands << @result
+        @result = ''
       end
-
-      @result = @result + found
 
     end
 
-    @result.chomp(' && ')
+    @specialtyCommands.each do |specialty|
+      @resultingCommands.each do |command|
+        command << ' ' << specialty
+      end
+    end
+
+    @resultingCommands
+  end
+
+  private
+  def isSpecialtyCommand(command)
+    if command.start_with?('-')
+      return true
+    end
+    false
   end
 
 end
