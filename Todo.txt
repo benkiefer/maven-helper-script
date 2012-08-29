@@ -1,2 +1,3 @@
-DONE 1. Figure out how to execute command line
-2. Figure out how to parse command line args
+ - Import mapping file from the project you are working in.
+ - Write the output to the window as the build is running.
+ - If a build fails, stop processing the commands.
