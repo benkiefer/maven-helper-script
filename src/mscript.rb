@@ -1,26 +1,36 @@
 require_relative 'argument_parser'
 
-LINE = '-------------------------------------------------------------------------------'
+LINE = "\n-------------------------------------------------------------------------------\n\n"
 
 commands = ArgumentParser.new().parse(ARGV)
 
-if commands.length > 0
+successful = true
+i = 0
+
+while successful && i < commands.length
+  command = commands[i]
   puts LINE
-  puts ''
+  puts "#{command}"
+  puts LINE
+
+  successful = system command
+  i += 1
 end
 
-commands.each do |command|
-  puts 'Executing Command: ' + command
-
-  puts ''
+if successful
   puts LINE
-  puts ''
-
-  puts %x[#{command}]
-
-  puts ''
+  puts "Successfully executed the following commands: "
+  commands.each do|command|
+    puts " - " << command
+  end
   puts LINE
-  puts ''
+else
+  puts LINE
+  puts "Failed executing command: " << command
+  puts LINE
+
 end
+
+
 
 
