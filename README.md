@@ -20,6 +20,7 @@ All you need is a little YAML. A simple YAML file call 'm.yml' with contents lik
         - install
 
 **How do I use it?**
+
 I'm working on something a little nicer, but for now...
 
  - Make sure you have ruby installed.
