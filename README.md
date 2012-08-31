@@ -30,7 +30,8 @@ I'm working on something a little nicer, but for now...
  - In a command window, 'cd' to the project's parent directory which should contain your YAML file.
  - Execute a command like the one.
 
+If you're having trouble, take a look at the sample-mvn-project.
+
 **To Do**
- - Set up a sample mvn project inside this project that lets you see how the example works.
  - Change the script so that it allows you to execute the commands from anywhere within the project, rather than just the top level folder.
  - Make the project into a gem that can be installed so that you don't have to screw around with the clunky path stuff.
