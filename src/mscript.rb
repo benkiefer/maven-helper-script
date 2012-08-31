@@ -28,7 +28,6 @@ else
   puts LINE
   puts "Failed executing command: " << command
   puts LINE
-
 end
 
 

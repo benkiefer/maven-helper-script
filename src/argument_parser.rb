@@ -1,45 +1,51 @@
+require_relative '../src/configuration_checker'
+
 class ArgumentParser
-  @@commands = {
-      'c' => 'clean',
-      'i' => 'install',
-      'ci' => 'clean install',
-      'jr' => 'jetty:run',
-      'ct' => 'clean test-compile'
-  }
+  def initialize
+    @configChecker = ConfigurationChecker.new
+  end
 
   public
   def parse(args)
-    @resultingCommands = Array[]
-    @result = ''
-    @specialtyCommands = Array[]
+    resultingCommands = Array[]
+    specialtyCommands = Array[]
+    result = ""
+    processingCommand = true
 
     args.each do |arg|
-      found = @@commands[arg]
-
-      if found != nil
-        @result << 'mvn ' << found
-
-      elsif isSpecialtyCommand arg
-        @specialtyCommands << arg
-
+      if isSpecialtyCommand arg
+        specialtyCommands << arg
       else
-        @result << ' -pl ' << arg
-        @resultingCommands << @result
-        @result = ''
+        if processingCommand
+          result << "mvn " << @configChecker.checkForCommand(arg)
+          processingCommand = false
+        else
+          foundModule = @configChecker.checkForModule(arg)
+          if (!foundModule)
+            foundModule = arg
+          end
+          result << " -pl " << foundModule
+          resultingCommands << result
+          result = ""
+          processingCommand = true
+        end
       end
-
     end
 
-    @specialtyCommands.each do |specialty|
-      @resultingCommands.each do |command|
-        command << ' ' << specialty
-      end
-    end
+    applySpecialtyCommandsTo(specialtyCommands, resultingCommands)
 
-    @resultingCommands
+    resultingCommands
   end
 
   private
+  def applySpecialtyCommandsTo(specialtyCommands, resultingCommands)
+    specialtyCommands.each do |command|
+      resultingCommands.each do |it|
+        it = it << " " << command
+      end
+    end
+  end
+
   def isSpecialtyCommand(command)
     if command.start_with?('-')
       return true

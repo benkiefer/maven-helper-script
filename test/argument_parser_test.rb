@@ -4,33 +4,40 @@ require "test/unit"
 class TestSimpleNumber < Test::Unit::TestCase
 
   def test_parse_multi_arguments
-    args = Array['ci', 'module']
+    args = Array['ci', 'p']
     result = ArgumentParser.new().parse(args)
     assert_equal(1, result.length)
-    assert_equal('mvn clean install -pl module', result[0])
+    assert_equal('mvn clean install -pl parent', result[0])
+  end
+
+  def test_parse_multi_arguments
+    args = Array['ci', 'parent']
+    result = ArgumentParser.new().parse(args)
+    assert_equal(1, result.length)
+    assert_equal('mvn clean install -pl parent', result[0])
   end
 
   def test_parse_multi_arguments_specialty_commands
-    args = Array['ci', 'module', '-o']
+    args = Array['ci', 'p', '-o']
     result = ArgumentParser.new().parse(args)
     assert_equal(1, result.length)
-    assert_equal('mvn clean install -pl module -o', result[0])
+    assert_equal('mvn clean install -pl parent -o', result[0])
   end
 
   def test_parse_multi_arguments_multiple_command_strings
-    args = Array['ci', 'module', 'ci', 'otherModule']
+    args = Array['ci', 'p', 'ci', 'p']
     result = ArgumentParser.new().parse(args)
     assert_equal(2, result.length)
-    assert_equal('mvn clean install -pl module', result[0])
-    assert_equal('mvn clean install -pl otherModule', result[1])
+    assert_equal('mvn clean install -pl parent', result[0])
+    assert_equal('mvn clean install -pl parent', result[1])
   end
 
   def test_parse_multi_arguments_multiple_command_strings_multiple_special_commands
-    args = Array['ci', 'module', '-o', 'ci', 'otherModule', '-blah']
+    args = Array['ci', 'p', '-o', 'ci', 'p', '-blah']
     result = ArgumentParser.new().parse(args)
     assert_equal(2, result.length)
-    assert_equal('mvn clean install -pl module -o -blah', result[0])
-    assert_equal('mvn clean install -pl otherModule -o -blah', result[1])
+    assert_equal('mvn clean install -pl parent -o -blah', result[0])
+    assert_equal('mvn clean install -pl parent -o -blah', result[1])
   end
 
 end
