@@ -8,7 +8,11 @@ You can do something like:
 
     m ci p ci d
 
-All you need is a little YAML. A simple YAML file call 'm.yml' with contents like the one below will get you on your way.
+You can also use your modules if you didn't define a mapping.
+
+    m ci parent ci d
+
+All you need is a simple YAML file call "m.yml" with contents like the one below will get you on your way.
 
     mappings:
       p: parent
@@ -20,18 +24,13 @@ All you need is a little YAML. A simple YAML file call 'm.yml' with contents lik
         - install
 
 **How do I use it?**
-
-I'm working on something a little nicer, but for now...
-
- - Make sure you have ruby installed.
+ - Make sure you have ruby installed and on your path.
  - Checkout the project to a directory on your machine.
- - Put the directory with the m file in it on your PATH.
- - Look at the "m" file in the checkout directory. This file points to the appropriate ruby file to execute. Tweak it as necessary.
- - In a command window, 'cd' to the project's parent directory which should contain your YAML file.
- - Execute a command like the one.
+ - From the checkout directory, type "rake install".
+ - In a command window, "cd" to your maven project's top-level directory which should contain your YAML file (as described above).
+ - Execute a command like the one above.
 
 If you're having trouble, take a look at the sample-mvn-project.
 
 **To Do**
  - Change the script so that it allows you to execute the commands from anywhere within the project, rather than just the top level folder.
- - Make the project into a gem that can be installed so that you don't have to screw around with the clunky path stuff.

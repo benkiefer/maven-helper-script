@@ -20,7 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{Ruby gem to simplify maven command execution}
   gem.description = %Q{Ruby gem to simplify maven command execution}
   gem.email = "kieferfam@msn.com"
-  gem.authors = ["Ben Kiefer"]
+  gem.authors = ["kingOburgers"]
 end
 
 Jeweler::RubygemsDotOrgTasks.new
