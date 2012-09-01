@@ -1,0 +1,14 @@
+mappings:
+  p: parent
+  par: parent
+  o: other
+
+maven:
+  phases:
+    - clean
+    - package
+    - test-compile
+    - jetty:run
+    - install
+    - deploy
+
