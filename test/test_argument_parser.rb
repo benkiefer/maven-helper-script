@@ -2,7 +2,7 @@ $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require "argument_parser"
 require "test/unit"
 
-class TestSimpleNumber < Test::Unit::TestCase
+class ArgumentParserTest < Test::Unit::TestCase
   def setup()
     file = File.open(File.join(File.dirname(__FILE__), 'm.yml'))
     @parser = MavenHelperScript::ArgumentParser.new(file)
