@@ -4,7 +4,7 @@ module MavenHelperScript
 
   class ConfigurationChecker
     def initialize(file)
-      @yml = YAML::load_file file
+      @yml = YAML::load_file(File.join(file, 'm.yml'))
     end
 
     public

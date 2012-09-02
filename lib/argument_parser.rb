@@ -4,6 +4,7 @@ module MavenHelperScript
 
   class ArgumentParser
     def initialize(file)
+      @projectPom = File.join(file, "pom.xml")
       @configChecker = MavenHelperScript::ConfigurationChecker.new(file)
     end
 
@@ -26,7 +27,7 @@ module MavenHelperScript
             if (!foundModule)
               foundModule = arg
             end
-            result << " -pl " << foundModule
+            result << " -pl " << foundModule << " -f " << @projectPom
             resultingCommands << result
             result = ""
             processingCommand = true

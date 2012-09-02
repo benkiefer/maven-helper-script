@@ -1,4 +1,5 @@
 require 'argument_parser'
+require 'project_home_finder'
 
 module MavenHelperScript
 
@@ -6,8 +7,9 @@ module MavenHelperScript
     LINE = "\n-------------------------------------------------------------------------------\n\n"
 
     def initialize()
-      file = File.join(File.expand_path('.'), 'm.yml')
-      @parser = MavenHelperScript::ArgumentParser.new(file)
+      finder = MavenHelperScript::ProjectHomeFinder.new
+      @projectFolder = finder.findProjectDirectory(File.expand_path("."))
+      @parser = MavenHelperScript::ArgumentParser.new(@projectFolder)
     end
 
     def run(args)

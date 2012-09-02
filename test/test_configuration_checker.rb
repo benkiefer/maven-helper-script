@@ -4,8 +4,7 @@ require 'test/unit'
 
 class ConfigurationCheckerTest < Test::Unit::TestCase
   def setup
-    file = File.open(File.join(File.dirname(__FILE__), 'm.yml'))
-    @checker = MavenHelperScript::ConfigurationChecker.new(file)
+    @checker = MavenHelperScript::ConfigurationChecker.new(File.join(File.dirname(__FILE__)))
   end
 
   def test_check_for_modules
