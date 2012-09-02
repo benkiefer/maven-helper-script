@@ -12,7 +12,7 @@ You can also use your modules if you didn't define a mapping.
 
     m ci parent ci d
 
-All you need is a simple YAML file call "m.yml" with contents like the one below will get you on your way.
+All you need is a simple YAML file call "m.yml" with contents like the one below in your top level maven project directory.
 
     mappings:
       p: parent
@@ -27,7 +27,8 @@ All you need is a simple YAML file call "m.yml" with contents like the one below
  - Make sure you have ruby installed and on your path.
  - Checkout the project to a directory on your machine.
  - From the checkout directory, type "rake install".
- - In a command window, "cd" to your maven project's top-level directory which should contain your YAML file (as described above).
+ - Put an "m.yml" file in you maven project's parent directory as described above.
+ - In a command window, "cd" to a directory in your project.
  - Execute a command like the one above.
 
 If you're having trouble, take a look at the sample-mvn-project.
