@@ -31,6 +31,3 @@ All you need is a simple YAML file call "m.yml" with contents like the one below
  - Execute a command like the one above.
 
 If you're having trouble, take a look at the sample-mvn-project.
-
-**To Do**
- - Change the script so that it allows you to execute the commands from anywhere within the project, rather than just the top level folder.
