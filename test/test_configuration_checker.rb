@@ -10,7 +10,7 @@ class ConfigurationCheckerTest < Test::Unit::TestCase
   def test_check_for_modules
     assert_equal("parent", @checker.checkForModule("p"))
     assert_equal("parent", @checker.checkForModule("par"))
-    assert_nil(@checker.checkForModule("boo"))
+    assert_equal("boo", @checker.checkForModule("boo"))
   end
 
   def test_check_for_commands

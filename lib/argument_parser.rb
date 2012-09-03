@@ -24,9 +24,6 @@ module MavenHelperScript
             processingCommand = false
           else
             foundModule = @configChecker.checkForModule(arg)
-            if (!foundModule)
-              foundModule = arg
-            end
             result << " -pl " << foundModule << " -f " << @projectPom
             resultingCommands << result
             result = ""

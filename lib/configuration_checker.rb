@@ -9,7 +9,7 @@ module MavenHelperScript
 
     public
     def checkForModule(mapping)
-      @yml['mappings'][mapping]
+      result = @yml['mappings'][mapping] || mapping
     end
 
     def checkForCommand(mapping)
