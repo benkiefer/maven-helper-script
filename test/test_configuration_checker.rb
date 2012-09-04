@@ -15,8 +15,9 @@ class ConfigurationCheckerTest < Test::Unit::TestCase
 
   def test_check_for_commands
     assert_equal("clean install", @checker.checkForCommand("ci"))
+    assert_equal("jetty:run", @checker.checkForCommand("jr"))
     assert_raise RuntimeError do
-      @checker.checkForCommand("boo")
+      @checker.checkForCommand("j")
     end
   end
 

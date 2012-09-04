@@ -8,9 +8,13 @@ You can do something like:
 
     m ci p ci d
 
-You can also use your modules if you didn't define a mapping.
+If you don't want to define a mapping for your module, you can use it's name.
 
     m ci parent ci d
+
+You can also create shorthand commands for various plugin phases. For example, executing "jetty:run" on your "web module could be:
+
+    m jr web
 
 All you need is a simple YAML file call "m.yml" with contents like the one below in your top level maven project directory.
 
@@ -22,6 +26,7 @@ All you need is a simple YAML file call "m.yml" with contents like the one below
       phases:
         - clean
         - install
+        - jetty:run
 
 **How do I use it?**
  - Make sure you have ruby installed and on your path.

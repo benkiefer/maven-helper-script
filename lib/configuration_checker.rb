@@ -5,42 +5,52 @@ module MavenHelperScript
   class ConfigurationChecker
     def initialize(file)
       @yml = YAML::load_file(File.join(file, 'm.yml'))
+      @commands = buildCommandKeys()
     end
 
     public
     def checkForModule(mapping)
-      result = @yml['mappings'][mapping] || mapping
+      @yml['mappings'][mapping] || mapping
     end
 
     def checkForCommand(mapping)
-      result = ''
-      i = 0
+      result = @commands[mapping]
 
-      while i < mapping.length
-        phase = findPhaseStartingWith(mapping[i])
-        if phase
-          result << phase << " "
+      if !result
+        result = ""
+        mapping.each_char do |character|
+          result << findCommandFor(character) << " "
         end
-        i += 1
+        result.strip!
       end
 
-      result.strip!
 
-      if result == ""
-        return nil
+      if !result || result.empty?
+        raise "Unable to locate command for: " << mapping
       end
 
       result
     end
 
     private
-    def findPhaseStartingWith(mapping)
+    def buildCommandKeys()
+      commandKeys = Hash.new()
       @yml['maven']['phases'].each do |phase|
-        if phase.start_with? mapping
-          return phase
+        if phase.include? ':'
+          key = ""
+          phase.split(':').each do |part|
+            key << part[0]
+          end
+          commandKeys[key] = phase
+        else
+          commandKeys[phase[0]] = phase
         end
       end
-      raise "Unable to locate command for: " << mapping
+      commandKeys
+    end
+
+    def findCommandFor(mapping)
+      @commands[mapping] || ""
     end
 
   end
