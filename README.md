@@ -1,5 +1,6 @@
 ##Maven Helper Script
-*****
+
+*What is it?*
 
 A script to simplify how you execute mvn commands. For example, instead of:
 
@@ -11,7 +12,7 @@ You can do something like:
 
 *****
 
-**Additional Features**
+*Additional Features*
 
 If you don't want to define a mapping for your module, you can use it's name.
 
@@ -31,7 +32,7 @@ You get:
 
 ******
 
-**How do I use it?**
+*How do I use it?*
  - Make sure you have ruby installed and on your path.
  - Checkout the project to a directory on your machine.
  - From the checkout directory, type "rake install".
