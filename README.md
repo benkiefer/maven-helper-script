@@ -1,8 +1,8 @@
 ##Maven Helper Script
 
-*What is it?*
+###What is it?###
 
-A script to simplify how you execute mvn commands. For example, instead of:
+A script to simplify how you execute Maven commands. For example, instead of:
 
     mvn clean install -pl parent && mvn clean install -pl domain
 
@@ -12,7 +12,7 @@ You can do something like:
 
 *****
 
-*Additional Features*
+###Additional Features###
 
 If you don't want to define a mapping for your module, you can use it's name.
 
@@ -22,17 +22,13 @@ You can also create shorthand commands for various plugin phases. For example, e
 
     m jr web
 
-All parameters passed into the helper script are applied to every execution. So when you type:
+All parameters passed into the helper script are applied to every execution. So you only need to flag a command like offline mode once:
 
     m ci web ci parent -o
 
-You get:
-
-    mvn clean install -pl web -o && mvn clean install -pl parent -o
-
 ******
 
-*How do I use it?*
+###How do I use it?###
  - Make sure you have ruby installed and on your path.
  - Checkout the project to a directory on your machine.
  - From the checkout directory, type "rake install".
