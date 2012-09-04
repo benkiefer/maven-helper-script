@@ -10,6 +10,18 @@ You can do something like:
 
     m ci p ci d
 
+All you need is a YAML file with contents like this:
+
+    mappings:
+      p: parent
+      d: domain
+
+    maven:
+      phases:
+        - clean
+        - install
+        - jetty:run
+
 *****
 
 ###Additional Features###
@@ -26,26 +38,16 @@ All parameters passed into the helper script are applied to every execution. So 
 
     m ci web ci parent -o
 
+Commands can be executed in any directory of your project, as long as there is an "m.yml" file in your project's top-level directory.
+
 ******
 
 ###How do I use it?###
  - Make sure you have ruby installed and on your path.
- - Checkout the project to a directory on your machine.
+ - Check out the project to a directory on your machine.
  - From the checkout directory, type "rake install".
- - Put an "m.yml" file in you maven project's parent directory as described above.
+ - Find one of your existing maven projects and put an "m.yml" file like the one above in the top-level directory.
  - In a command window, "cd" to a directory in your project.
- - Execute a command like the one above.
-
-All you need is a simple YAML file call "m.yml" with contents like the one below in your top level maven project directory.
-
-    mappings:
-      p: parent
-      d: domain
-
-    maven:
-      phases:
-        - clean
-        - install
-        - jetty:run
+ - Execute a command.
 
 If you're having trouble, take a look at the sample-mvn-project.
