@@ -5,11 +5,6 @@ module MavenHelperScript
   class ProjectHomeFinder
     public
     def findProjectDirectory(file)
-      checkForProjectArtifacts(file)
-    end
-
-    private
-    def checkForProjectArtifacts(file)
       @originalPath = Pathname.new(File.expand_path(file))
       @path = @originalPath
       found = false
@@ -28,6 +23,7 @@ module MavenHelperScript
       File.join(@path)
     end
 
+    private
     def outOfDirectoriesToCheck(currentPath)
       currentPath == currentPath.parent
     end
