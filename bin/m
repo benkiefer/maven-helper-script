@@ -2,7 +2,4 @@
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'script_runner'
 
-runner = MavenHelperScript::ScriptRunner.new
-
-
-runner.run(ARGV)
+MavenHelperScript::ScriptRunner.new().run(ARGV)
