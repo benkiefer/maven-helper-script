@@ -51,3 +51,9 @@ Commands can be executed in any directory of your project, as long as there is a
  - Execute a command.
 
 If you're having trouble, take a look at the sample-mvn-project.
+
+******
+
+###To Do###
+ - Support commands in the form of a map, similar to how the modules are defined.
+ - Allow user to specify arguments that are always applied to executions.
