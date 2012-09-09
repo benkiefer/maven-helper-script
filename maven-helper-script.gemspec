@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
     "test/m.yml",
     "test/project_home_finder_spec.rb"
   ]
-  s.homepage = "http://github.com/kingOburgers/mvn-helper-script"
+  s.homepage = "http://github.com/kingOburgers/maven-helper-script"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
   s.summary = "Ruby gem to simplify maven command execution"
