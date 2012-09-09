@@ -26,9 +26,8 @@ end
 Jeweler::RubygemsDotOrgTasks.new
 
 require 'rspec/core/rake_task'
-require 'rubygems'
+
 RSpec::Core::RakeTask.new(:spec) do |spec|
-  #spec.libs << 'lib' << 'spec'
   spec.pattern = 'test/**/*_spec.rb'
 end
 
