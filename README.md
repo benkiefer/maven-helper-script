@@ -12,15 +12,14 @@ You can do something like:
 
 All you need is a YAML file with contents like this:
 
-    mappings:
+    modules:
       p: parent
       d: domain
 
-    maven:
-      phases:
-        - clean
-        - install
-        - jetty:run
+    commands:
+      - clean
+      - install
+      - jetty:run
 
 *****
 

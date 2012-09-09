@@ -10,7 +10,7 @@ module MavenHelperScript
 
     public
     def checkForModule(mapping)
-      @yml['mappings'][mapping] || mapping
+      @yml['modules'][mapping] || mapping
     end
 
     def checkForCommand(mapping)
@@ -35,7 +35,7 @@ module MavenHelperScript
     private
     def buildCommandKeys()
       commandKeys = Hash.new()
-      @yml['maven']['phases'].each do |phase|
+      @yml['commands'].each do |phase|
         if phase.include? ':'
           key = ""
           phase.split(':').each do |part|

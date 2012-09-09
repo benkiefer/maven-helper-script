@@ -1,14 +1,13 @@
-mappings:
+modules:
   p: parent
   par: parent
   o: other
 
-maven:
-  phases:
-    - clean
-    - package
-    - test-compile
-    - jetty:run
-    - install
-    - deploy
+commands:
+  - clean
+  - package
+  - test-compile
+  - jetty:run
+  - install
+  - deploy
 
