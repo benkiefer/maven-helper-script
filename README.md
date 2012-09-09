@@ -23,7 +23,6 @@ All you need is a YAML file with contents like this:
 
     arguments:
       - -ff
-      - -DskipTests
 
 *****
 
@@ -41,7 +40,7 @@ All parameters passed into the helper script are applied to every execution. So 
 
     m ci web ci parent -o
 
-Including the optional "arguments:" mapping in your m.yml file allows you to apply arguments without typing them in the command line.
+Including the optional "arguments:" mapping in your m.yml file allows you to apply arguments without typing them in the command line. The example "m.yml above would trigger the "-ff" arg for maven.
 
 Commands can be executed in any directory of your project, as long as there is an "m.yml" file in your project's top-level directory.
 
