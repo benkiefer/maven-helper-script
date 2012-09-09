@@ -15,10 +15,10 @@ require 'rake'
 require 'jeweler'
 
 Jeweler::Tasks.new do |gem|
-  gem.name = "mvn-helper-script"
+  gem.name = "maven-helper-script"
   gem.homepage = "http://github.com/kingOburgers/mvn-helper-script"
   gem.summary = %Q{Ruby gem to simplify maven command execution}
-  gem.description = %Q{Ruby gem to simplify maven command execution}
+  gem.description = %Q{Execute your complex maven commands faster with the shortened helper syntax. See the rdoc for more details and examples.}
   gem.email = "kieferfam@msn.com"
   gem.authors = ["kingOburgers"]
 end
