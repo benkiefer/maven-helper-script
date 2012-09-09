@@ -44,13 +44,14 @@ Commands can be executed in any directory of your project, as long as there is a
 
 == How do I use it?
  - Make sure you have ruby installed and on your path.
- - Check out the project to a directory on your machine.
- - From the checkout directory, type "rake install".
+ - In a command window, type "gem install maven-helper-script".
  - Find one of your existing maven projects and put an "m.yml" file like the one above in the top-level directory.
  - In a command window, "cd" to a directory in your project.
  - Execute a command.
 
-If you're having trouble, take a look at the sample-mvn-project located within the project on github.
+If you're having trouble, take a look at the sample-mvn-project located within the project.
 
 == To Do
  - Support commands in the form of a map, similar to how the modules are defined.
+
+[![Build Status](https://secure.travis-ci.org/kingOburgers/maven-helper-script.png?branch=master)](http://travis-ci.org/kingOburgers/maven-helper-script)
