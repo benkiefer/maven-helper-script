@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "lib/configuration_checker.rb",
     "lib/project_home_finder.rb",
     "lib/script_runner.rb",
+    "maven-helper-script.gemspec",
     "sample-mvn-project/m.yml",
     "sample-mvn-project/other/pom.xml",
     "sample-mvn-project/parent/pom.xml",
