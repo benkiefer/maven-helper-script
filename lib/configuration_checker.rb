@@ -9,6 +9,10 @@ module MavenHelperScript
     end
 
     public
+    def checkForArguments()
+      @yml['arguments'] || Array[]
+    end
+
     def checkForModule(mapping)
       @yml['modules'][mapping] || mapping
     end

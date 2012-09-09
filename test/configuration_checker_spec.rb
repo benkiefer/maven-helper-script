@@ -26,5 +26,9 @@ describe MavenHelperScript::ConfigurationChecker do
     expect {@checker.checkForCommand("j") }.to raise_error(RuntimeError, "Unable to locate command for: j")
   end
 
+  it  "should return all command arguments" do
+    args = Array['-ff', '-DskipTests']
+    expect @checker.checkForArguments().should == args
+  end
 
 end

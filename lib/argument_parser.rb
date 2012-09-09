@@ -11,7 +11,7 @@ module MavenHelperScript
     public
     def parse(args)
       resultingCommands = Array[]
-      specialtyCommands = Array[]
+      specialtyCommands = @configChecker.checkForArguments()
       result = ""
       processingCommand = true
 

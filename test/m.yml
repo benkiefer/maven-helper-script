@@ -10,3 +10,7 @@ commands:
   - install
   - deploy
 
+arguments:
+  - -ff
+  - -DskipTests
+

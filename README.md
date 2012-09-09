@@ -21,6 +21,10 @@ All you need is a YAML file with contents like this:
       - install
       - jetty:run
 
+    arguments:
+      - -ff
+      - -DskipTests
+
 *****
 
 ###Additional Features###
@@ -36,6 +40,8 @@ You can also create shorthand commands for various plugin phases. For example, e
 All parameters passed into the helper script are applied to every execution. So you only need to flag a command like offline mode once:
 
     m ci web ci parent -o
+
+Including the optional "arguments:" mapping in your m.yml file allows you to apply arguments without typing them in the command line.
 
 Commands can be executed in any directory of your project, as long as there is an "m.yml" file in your project's top-level directory.
 
@@ -55,4 +61,3 @@ If you're having trouble, take a look at the sample-mvn-project.
 
 ###To Do###
  - Support commands in the form of a map, similar to how the modules are defined.
- - Allow user to specify arguments that are always applied to executions.
