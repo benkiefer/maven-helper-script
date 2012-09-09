@@ -54,4 +54,4 @@ If you're having trouble, take a look at the sample-mvn-project located within t
 == To Do
  - Support commands in the form of a map, similar to how the modules are defined.
 
-[![Build Status](https://secure.travis-ci.org/kingOburgers/maven-helper-script.png?branch=master)](http://travis-ci.org/kingOburgers/maven-helper-script)
+{<img src="https://secure.travis-ci.org/kingOburgers/maven-helper-script.png" />}[http://travis-ci.org/kingOburgers/maven-helper-script]
