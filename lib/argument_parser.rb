@@ -5,7 +5,7 @@ module MavenHelperScript
   class ArgumentParser
     def initialize(file)
       @projectPom = File.join(file, "pom.xml")
-      @configChecker = MavenHelperScript::ConfigurationChecker.new(file)
+      @configChecker = MavenHelperScript::ConfigurationChecker.new(file, 'm.yml')
     end
 
     public

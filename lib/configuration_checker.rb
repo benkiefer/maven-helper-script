@@ -3,8 +3,8 @@ require 'yaml'
 module MavenHelperScript
 
   class ConfigurationChecker
-    def initialize(file)
-      @yml = YAML::load_file(File.join(file, 'm.yml'))
+    def initialize(file, configFileName)
+      @yml = YAML::load_file(File.join(file, configFileName))
       @commands = buildCommandKeys()
     end
 

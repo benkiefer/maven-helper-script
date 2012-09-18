@@ -3,7 +3,7 @@ require "configuration_checker"
 
 describe MavenHelperScript::ConfigurationChecker do
   before(:each) do
-    @checker = MavenHelperScript::ConfigurationChecker.new(File.join(File.dirname(__FILE__)))
+    @checker = MavenHelperScript::ConfigurationChecker.new(File.join(File.dirname(__FILE__)), 'm.yml')
   end
 
   it "should find module by mapping" do
