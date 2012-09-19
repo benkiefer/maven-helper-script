@@ -23,7 +23,6 @@ All you need is a YAML file with contents like this:
     commands:
       - clean
       - install
-      - jetty:run
 
     arguments:
       - -ff
@@ -37,8 +36,7 @@ Or you can supply a YAML file with your commands in a map, like this:
     commands:
       c: clean
       i: install
-      jr: jetty:run
-      ci: clean install
+      cd: clean deploy
 
     arguments:
       - -ff
@@ -49,15 +47,31 @@ If you don't want to define a mapping for your module, you can use it's name.
 
     m ci parent ci d
 
-You can also create shorthand commands for various plugin phases. For example, executing "jetty:run" on your "web module could be:
+----
+
+You can also create shorthand commands for various plugin phases. For example, executing "jetty:run" on your "web" module could be:
 
     m jr web
+
+if you provide a mapping file with either:
+
+    commands:
+      jr: jetty:run
+
+or:
+
+    commands:
+      - jetty:run
+
+----
 
 All parameters passed into the helper script are applied to every execution. So you only need to flag a command like offline mode once:
 
     m ci web ci parent -o
 
 Including the optional "arguments:" mapping in your m.yml file allows you to apply arguments without typing them in the command line. The example "m.yml above would trigger the "-ff" arg for maven.
+
+----
 
 Commands can be executed in any directory of your project, as long as there is an "m.yml" file in your project's top-level directory.
 
