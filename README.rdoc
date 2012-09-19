@@ -12,6 +12,8 @@ You can do something like:
 
     m ci p ci d
 
+== How?
+
 All you need is a YAML file with contents like this:
 
     modules:
@@ -22,6 +24,21 @@ All you need is a YAML file with contents like this:
       - clean
       - install
       - jetty:run
+
+    arguments:
+      - -ff
+
+Or you can supply a YAML file with your commands in a map, like this:
+
+    modules:
+      p: parent
+      d: domain
+
+    commands:
+      c: clean
+      i: install
+      jr: jetty:run
+      ci: clean install
 
     arguments:
       - -ff
@@ -52,7 +69,3 @@ Commands can be executed in any directory of your project, as long as there is a
  - Execute a command.
 
 If you're having trouble, take a look at the wiki or sample-mvn-project located within the project.
-
-== To Do
- - Support commands in the form of a map, similar to how the modules are defined.
-
