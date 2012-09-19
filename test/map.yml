@@ -1,0 +1,17 @@
+modules:
+  p: parent
+  par: parent
+
+commands:
+  c: clean
+  p: package
+  tc: test-compile
+  jr: jetty:run
+  i: install
+  d: deploy
+  ci: clean install
+
+arguments:
+  - -ff
+  - -DskipTests
+

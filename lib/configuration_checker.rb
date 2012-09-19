@@ -23,14 +23,13 @@ module MavenHelperScript
       if !result
         result = ""
         mapping.each_char do |character|
-          result << findCommandFor(character) << " "
+          command = findCommandFor(character)
+          if !command || command.empty?
+            raise "Unable to locate command for: " << character
+          end
+          result << command << " "
         end
         result.strip!
-      end
-
-
-      if !result || result.empty?
-        raise "Unable to locate command for: " << mapping
       end
 
       result
@@ -38,19 +37,25 @@ module MavenHelperScript
 
     private
     def buildCommandKeys()
-      commandKeys = Hash.new()
-      @yml['commands'].each do |phase|
-        if phase.include? ':'
-          key = ""
-          phase.split(':').each do |part|
-            key << part[0]
+      if @yml['commands'].class ==  Hash
+        #They are a map so you don't need to break them up.
+        return @yml['commands']
+      else
+        #Break the list up into a map keyed off the possible command values
+        commandKeys = Hash.new()
+        @yml['commands'].each do |phase|
+          if phase.include? ':'
+            key = ""
+            phase.split(':').each do |part|
+              key << part[0]
+            end
+            commandKeys[key] = phase
+          else
+            commandKeys[phase[0]] = phase
           end
-          commandKeys[key] = phase
-        else
-          commandKeys[phase[0]] = phase
         end
+        return commandKeys
       end
-      commandKeys
     end
 
     def findCommandFor(mapping)
