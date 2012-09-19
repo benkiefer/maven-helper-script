@@ -65,6 +65,12 @@ or:
 
 ----
 
+---
+
+-------------------------------------
+
+-------------
+
 All parameters passed into the helper script are applied to every execution. So you only need to flag a command like offline mode once:
 
     m ci web ci parent -o
