@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "maven-helper-script"
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["kingOburgers"]
-  s.date = "2012-09-19"
+  s.date = "2012-09-22"
   s.description = "Execute your complex maven commands faster with the shortened helper syntax. See the rdoc for more details and examples."
   s.email = "kieferfam@msn.com"
   s.executables = ["m"]
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "bin/m",
     "lib/argument_parser.rb",
     "lib/configuration_checker.rb",
+    "lib/invalid_command_exception.rb",
     "lib/project_home_finder.rb",
     "lib/script_runner.rb",
     "maven-helper-script.gemspec",
@@ -38,6 +39,7 @@ Gem::Specification.new do |s|
     "test/argument_parser_spec.rb",
     "test/configuration_checker_map_spec.rb",
     "test/configuration_checker_spec.rb",
+    "test/invalid_command_exception_spec.rb",
     "test/m.yml",
     "test/map.yml",
     "test/project_home_finder_spec.rb",
