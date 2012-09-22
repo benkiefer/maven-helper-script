@@ -40,7 +40,13 @@ module MavenHelperScript
         puts "Failed executing command: " << command
         puts LINE
       end
-
+    rescue MavenHelperScript::InvalidCommandException => e
+      puts "Unable to process command: " << e.failedCommand
+      puts "\nFound Commands: "
+      e.commands.each do |key, value|
+        puts "\t" << key << " : " << value
+      end
+      puts "\nUse valid combinations of the commands above."
     end
 
   end

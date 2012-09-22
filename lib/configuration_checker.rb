@@ -1,4 +1,5 @@
 require 'yaml'
+require_relative 'invalid_command_exception'
 
 module MavenHelperScript
 
@@ -25,7 +26,7 @@ module MavenHelperScript
         mapping.each_char do |character|
           command = findCommandFor(character)
           if !command || command.empty?
-            raise "Unable to locate command for: " << character
+            raise MavenHelperScript::InvalidCommandException.new(@commands, mapping)
           end
           result << command << " "
         end

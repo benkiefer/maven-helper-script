@@ -1,5 +1,6 @@
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require "configuration_checker"
+require "invalid_command_exception"
 
 describe MavenHelperScript::ConfigurationChecker do
   before(:each) do
@@ -23,7 +24,7 @@ describe MavenHelperScript::ConfigurationChecker do
   end
 
   it "should blow up when can't find command" do
-    expect {@checker.checkForCommand("j") }.to raise_error(RuntimeError, "Unable to locate command for: j")
+    expect {@checker.checkForCommand("j") }.to raise_error(MavenHelperScript::InvalidCommandException)
   end
 
   it  "should return all command arguments" do
