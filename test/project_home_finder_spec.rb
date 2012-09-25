@@ -17,7 +17,7 @@ describe MavenHelperScript::ProjectHomeFinder do
   end
 
   it "should blow up when can't find project folder" do
-    expect { @finder.findProjectDirectory(File.join(@mvnProjectFolder, "..")) }.to raise_error(RuntimeError)
+    expect { @finder.findProjectDirectory(File.join(@mvnProjectFolder, "..")) }.to raise_error(MavenHelperScript::MissingProjectFolderException)
   end
 
 end

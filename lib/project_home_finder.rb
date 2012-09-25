@@ -15,7 +15,7 @@ module MavenHelperScript
           if !outOfDirectoriesToCheck @path
             @path = @path.parent
           else
-            raise "Unable to locate configuration and project information for: " << @originalPath.to_s
+            raise MavenHelperScript::MissingProjectFolderException.new
           end
         end
       end
@@ -33,5 +33,9 @@ module MavenHelperScript
     end
 
   end
+
+  class MissingProjectFolderException < Exception
+  end
+
 
 end
