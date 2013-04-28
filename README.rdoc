@@ -1,6 +1,6 @@
 = Maven Helper Script
 
-{<img src="https://secure.travis-ci.org/kingOburgers/maven-helper-script.png" />}[http://travis-ci.org/kingOburgers/maven-helper-script]
+{<img src="https://secure.travis-ci.org/benkiefer/maven-helper-script.png" />}[http://travis-ci.org/benkiefer/maven-helper-script]
 
 == What is it?
 
