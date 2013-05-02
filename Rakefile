@@ -16,11 +16,11 @@ require 'jeweler'
 
 Jeweler::Tasks.new do |gem|
   gem.name = "maven-helper-script"
-  gem.homepage = "http://github.com/kingOburgers/maven-helper-script"
+  gem.homepage = "http://github.com/benkiefer/maven-helper-script"
   gem.summary = %Q{Ruby gem to simplify maven command execution}
   gem.description = %Q{Execute your complex maven commands faster with the shortened helper syntax. See the rdoc for more details and examples.}
   gem.email = "kieferfam@msn.com"
-  gem.authors = ["kingOburgers"]
+  gem.authors = ["benkiefer"]
 end
 
 Jeweler::RubygemsDotOrgTasks.new
