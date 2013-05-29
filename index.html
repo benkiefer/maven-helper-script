@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Maven-helper-script : A tool to simplify the execution of maven commands." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Maven-helper-script</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/benkiefer/maven-helper-script">View on GitHub</a>
+
+          <h1 id="project_title">Maven-helper-script</h1>
+          <h2 id="project_tagline">A tool to simplify the execution of maven commands.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/benkiefer/maven-helper-script/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/benkiefer/maven-helper-script/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="maven-helper-script" class="anchor" href="#maven-helper-script"><span class="octicon octicon-link"></span></a>Maven Helper Script</h1>
+
+<h3>
+<a name="what-is-it" class="anchor" href="#what-is-it"><span class="octicon octicon-link"></span></a>What is it?</h3>
+
+<p>A script to simplify how you execute Maven commands. For example, instead of:</p>
+
+<pre><code>mvn clean install -pl parent &amp;&amp; mvn clean install -pl domain
+</code></pre>
+
+<p>You can do something like:</p>
+
+<pre><code>m ci p ci d
+</code></pre>
+
+<h3>
+<a name="how" class="anchor" href="#how"><span class="octicon octicon-link"></span></a>How?</h3>
+
+<p>All you need is a YAML file with contents like this:</p>
+
+<pre><code>modules:
+  p: parent
+  d: domain
+
+commands:
+  - clean
+  - install
+
+arguments:
+  - -ff
+</code></pre>
+
+<p>Or you can supply a YAML file with your commands in a map, like this:</p>
+
+<pre><code>modules:
+  p: parent
+  d: domain
+
+commands:
+  c: clean
+  i: install
+  cd: clean deploy
+
+arguments:
+  - -ff
+</code></pre>
+
+<h3>
+<a name="additional-features" class="anchor" href="#additional-features"><span class="octicon octicon-link"></span></a>Additional Features</h3>
+
+<p>If you don't want to define a mapping for your module, you can use it's name.</p>
+
+<pre><code>m ci parent ci d
+</code></pre>
+
+<p>You can also create shorthand commands for various plugin phases. For example, executing "jetty:run" on your "web" module could be:</p>
+
+<pre><code>m jr web
+</code></pre>
+
+<p>if you provide a mapping file with either:</p>
+
+<pre><code>commands:
+  jr: jetty:run
+</code></pre>
+
+<p>or:</p>
+
+<pre><code>commands:
+  - jetty:run
+</code></pre>
+
+<p>All parameters passed into the helper script are applied to every execution. So you only need to flag a command like offline mode once:</p>
+
+<pre><code>m ci web ci parent -o
+</code></pre>
+
+<p>Including the optional "arguments:" mapping in your m.yml file allows you to apply arguments without typing them in the command line. The example YAML files above would trigger the "-ff" arg for maven.</p>
+
+<p>Commands can be executed in any directory of your project, as long as there is an "m.yml" file in your project's top-level directory.</p>
+
+<h3>
+<a name="how-do-i-use-it" class="anchor" href="#how-do-i-use-it"><span class="octicon octicon-link"></span></a>How do I use it?</h3>
+
+<ul>
+<li>Make sure you have ruby installed and on your path.</li>
+<li>In a command window, type "gem install maven-helper-script".</li>
+<li>Find one of your existing maven projects and put an "m.yml" file like the one above in the top-level directory.</li>
+<li>In a command window, "cd" to a directory in your project.</li>
+<li>Execute a command.</li>
+</ul><p>If you're having trouble, take a look at the wiki or sample-mvn-project located within the project.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Maven-helper-script maintained by <a href="https://github.com/benkiefer">benkiefer</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
