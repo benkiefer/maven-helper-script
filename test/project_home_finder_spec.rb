@@ -8,12 +8,12 @@ describe MavenHelperScript::ProjectHomeFinder do
   end
 
   it "should find project folder from sub folder" do
-    @finder.findProjectDirectory(File.join(@mvnProjectFolder, "other")).should == @mvnProjectFolder
-    @finder.findProjectDirectory(File.join(@mvnProjectFolder, "parent")).should == @mvnProjectFolder
+    expect(@finder.findProjectDirectory(File.join(@mvnProjectFolder, "other"))).to eq @mvnProjectFolder
+    expect(@finder.findProjectDirectory(File.join(@mvnProjectFolder, "parent"))).to eq @mvnProjectFolder
   end
 
   it "should find project folder from project folder" do
-    @finder.findProjectDirectory(File.join(@mvnProjectFolder)).should == @mvnProjectFolder
+    expect(@finder.findProjectDirectory(File.join(@mvnProjectFolder))).to eq @mvnProjectFolder
   end
 
   it "should blow up when can't find project folder" do

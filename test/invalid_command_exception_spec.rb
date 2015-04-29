@@ -9,8 +9,8 @@ describe MavenHelperScript::InvalidCommandException do
   end
 
   it "should print command mapping" do
-    @error.commands.should == @commands
-    @error.failedCommand.should == "boom"
+    expect(@error.commands).to eq @commands
+    expect(@error.failedCommand).to eq "boom"
   end
 
 end

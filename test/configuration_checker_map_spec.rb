@@ -8,15 +8,15 @@ describe MavenHelperScript::ConfigurationChecker do
   end
 
   it "should find module by mapping" do
-    @checker.checkForModule("p").should == "parent"
+    expect(@checker.checkForModule("p")).to eq "parent"
   end
 
   it "should send back mapping name when no module found, assume that is the correct module name" do
-    @checker.checkForModule("boo").should == "boo"
+    expect(@checker.checkForModule("boo")).to eq "boo"
   end
 
   it "should find command using first characters when not a plugin execution" do
-    @checker.checkForCommand("ci").should == "clean install"
+    expect(@checker.checkForCommand("ci")).to eq "clean install"
   end
 
   it "should blow up if you can't find the other part of a command" do
@@ -24,7 +24,7 @@ describe MavenHelperScript::ConfigurationChecker do
   end
 
   it "should find plugin execution" do
-    @checker.checkForCommand("jr").should == "jetty:run"
+    expect(@checker.checkForCommand("jr")).to eq "jetty:run"
   end
 
   it "should blow up when can't find command" do
@@ -33,7 +33,7 @@ describe MavenHelperScript::ConfigurationChecker do
 
   it  "should return all command arguments" do
     args = Array['-ff', '-DskipTests']
-    expect @checker.checkForArguments().should == args
+    expect(@checker.checkForArguments()).to eq args
   end
 
 end
