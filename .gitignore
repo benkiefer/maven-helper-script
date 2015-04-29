@@ -15,8 +15,10 @@ doc
 # jeweler generated
 pkg
 
-*.idea
+# intellij
+.idea
 *.iml
 *.ipr
 *.iws
+
 target
