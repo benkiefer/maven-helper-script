@@ -1,9 +1,9 @@
 module MavenHelperScript
 
   class InvalidCommandException < Exception
-    def initialize(commands, failedCommand)
+    def initialize(commands, failed_command)
       @commands = commands
-      @failedCommand = failedCommand
+      @failed_command = failed_command
     end
 
     def commands
@@ -11,7 +11,7 @@ module MavenHelperScript
     end
 
     def failedCommand
-      return @failedCommand
+      return @failed_command
     end
 
   end

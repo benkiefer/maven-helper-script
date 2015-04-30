@@ -4,15 +4,15 @@ module MavenHelperScript
 
   class ProjectHomeFinder
     public
-    def findProjectDirectory(file)
-      @originalPath = Pathname.new(File.expand_path(file))
-      @path = @originalPath
+    def find_project_directory(file)
+      @original_path = Pathname.new(File.expand_path(file))
+      @path = @original_path
       found = false
 
-      while !found
-        found = foundProjectArtifacts(File.join(@path))
-        if !found
-          if !outOfDirectoriesToCheck @path
+      until found
+        found = found_project_artifacts(File.join(@path))
+        unless found
+          if !out_of_directories_to_check @path
             @path = @path.parent
           else
             raise MavenHelperScript::MissingProjectFolderException.new
@@ -24,11 +24,11 @@ module MavenHelperScript
     end
 
     private
-    def outOfDirectoriesToCheck(currentPath)
-      currentPath == currentPath.parent
+    def out_of_directories_to_check(current_path)
+      current_path == current_path.parent
     end
 
-    def foundProjectArtifacts(file)
+    def found_project_artifacts(file)
       FileTest.exist?(File.join(file, 'm.yml')) && FileTest.exist?(File.join(file, 'pom.xml'))
     end
 

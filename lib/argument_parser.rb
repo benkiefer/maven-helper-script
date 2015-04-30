@@ -1,52 +1,52 @@
-require_relative 'configuration_checker'
+require 'configuration_checker'
 
 module MavenHelperScript
 
   class ArgumentParser
     def initialize(file)
-      @projectPom = File.join(file, "pom.xml")
-      @configChecker = MavenHelperScript::ConfigurationChecker.new(file, 'm.yml')
+      @project_pom = File.join(file, "pom.xml")
+      @config_checker = MavenHelperScript::ConfigurationChecker.new(file, 'm.yml')
     end
 
     public
     def parse(args)
-      resultingCommands = Array[]
-      specialtyCommands = @configChecker.checkForArguments()
+      resulting_commands = Array[]
+      specialty_commands = @config_checker.check_for_arguments
       result = ""
-      processingCommand = true
+      processing_command = true
 
       args.each do |arg|
-        if isSpecialtyCommand arg
-          specialtyCommands << arg
+        if is_specialty_command arg
+          specialty_commands << arg
         else
-          if processingCommand
-            result << "mvn " << @configChecker.checkForCommand(arg)
-            processingCommand = false
+          if processing_command
+            result << "mvn " << @config_checker.check_for_command(arg)
+            processing_command = false
           else
-            foundModule = @configChecker.checkForModule(arg)
-            result << " -pl " << foundModule << " -f " << @projectPom
-            resultingCommands << result
+            found_module = @config_checker.check_for_module(arg)
+            result << " -pl " << found_module << " -f " << @project_pom
+            resulting_commands << result
             result = ""
-            processingCommand = true
+            processing_command = true
           end
         end
       end
 
-      applySpecialtyCommandsTo(specialtyCommands, resultingCommands)
+      apply_specialty_commands_to(specialty_commands, resulting_commands)
 
-      resultingCommands
+      resulting_commands
     end
 
     private
-    def applySpecialtyCommandsTo(specialtyCommands, resultingCommands)
-      specialtyCommands.each do |command|
-        resultingCommands.each do |it|
+    def apply_specialty_commands_to(specialty_commands, resulting_commands)
+      specialty_commands.each do |command|
+        resulting_commands.each do |it|
           it = it << " " << command
         end
       end
     end
 
-    def isSpecialtyCommand(command)
+    def is_specialty_command(command)
       if command.start_with?('-')
         return true
       end
