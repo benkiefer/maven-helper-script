@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["benkiefer"]
-  s.date = "2015-04-29"
+  s.date = "2015-04-30"
   s.description = "Execute your complex maven commands faster with the shortened helper syntax. See the rdoc for more details and examples."
   s.email = "ben.a.kiefer@gmail.com"
   s.executables = ["m"]
@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
-    ".document",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -33,21 +32,10 @@ Gem::Specification.new do |s|
     "lib/invalid_command_exception.rb",
     "lib/project_home_finder.rb",
     "lib/script_runner.rb",
-    "maven-helper-script.gemspec",
-    "sample-mvn-project/m.yml",
-    "sample-mvn-project/other/pom.xml",
-    "sample-mvn-project/parent/pom.xml",
-    "sample-mvn-project/pom.xml",
-    "test/argument_parser_spec.rb",
-    "test/configuration_checker_map_spec.rb",
-    "test/configuration_checker_spec.rb",
-    "test/invalid_command_exception_spec.rb",
-    "test/m.yml",
-    "test/map.yml",
-    "test/project_home_finder_spec.rb",
-    "travis.yml"
+    "maven-helper-script.gemspec"
   ]
   s.homepage = "http://benkiefer.github.io/maven-helper-script"
+  s.required_ruby_version = Gem::Requirement.new("~> 2.2")
   s.rubygems_version = "2.4.6"
   s.summary = "Ruby gem to simplify maven command execution"
 

@@ -21,6 +21,11 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{Execute your complex maven commands faster with the shortened helper syntax. See the rdoc for more details and examples.}
   gem.email = "ben.a.kiefer@gmail.com"
   gem.authors = ["benkiefer"]
+  gem.required_ruby_version = '~> 2.2'
+  gem.files.exclude 'test/**'
+  gem.files.exclude 'sample-mvn-project/**/**'
+  gem.files.exclude 'travis.yml'
+  gem.files.exclude '.document'
 end
 
 Jeweler::RubygemsDotOrgTasks.new
