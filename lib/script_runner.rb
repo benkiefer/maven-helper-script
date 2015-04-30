@@ -10,9 +10,9 @@ module MavenHelperScript
       finder = MavenHelperScript::ProjectHomeFinder.new
 
       file = File.expand_path(".")
-      projectFolder = finder.find_project_directory(file)
+      project_folder = finder.find_project_directory(file)
 
-      parser = MavenHelperScript::ArgumentParser.new(projectFolder)
+      parser = MavenHelperScript::ArgumentParser.new(project_folder)
 
       commands = parser.parse(args)
 
